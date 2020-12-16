@@ -1,29 +1,20 @@
-name: Example workflow for S3 Deploy
-on: [push]
-jobs:
-  run:
-    runs-on: windows-latest
-    env:
-      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-    steps:
-       - uses: actions/checkout@v2
-       - uses: borales/actions-yarn@v2.0.0
-         with:
-          cmd: install # will run `yarn install` command
-       - uses: borales/actions-yarn@v2.0.0
-         with:
-          cmd: build # will run `yarn build` command
+name: Add File to Bucket
+on: push
 
-      - name: Deploy
-          uses: reggionick/s3-deploy@v3
-          with:
-            folder: build
-            bucket: ${{ secrets.S3_BUCKET }}
-            bucket-region: ${{ secrets.S3_BUCKET_REGION }}
-            dist-id: ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }}
-            invalidation: /
-            delete-removed: true
-            no-cache: true
-            private: true
-     
+jobs:
+  deploy:
+    runs-on: windows-latest
+    
+    steps:
+    - uses: actions/checkout@main
+   
+    - name: Upload file to bucket
+      uses: zacfrulloni/s3-upload-github-action@main
+      with:
+       args: --acl public-read
+    env:
+     FILE: index.html
+     AWS_REGION: 'eu-west-2'
+     S3_BUCKET: ${{ secrets.AWS_S3_BUCKET }}
+     AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+     AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
