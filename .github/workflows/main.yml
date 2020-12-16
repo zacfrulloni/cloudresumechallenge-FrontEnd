@@ -9,7 +9,7 @@ jobs:
     - uses: actions/checkout@main
    
     - name: Upload file to bucket
-      uses: cloudresumechallenge-FrontEnd/s3-upload-github-action@main
+      uses: cloudresumechallenge-FrontEnd/index.html/s3-upload-github-action@main
       with:
        args: --acl public-read
     env:
