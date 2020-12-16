@@ -31,7 +31,3 @@ jobs:
          dist-id: E3L31PEXV3KQZH
          invalidation: I2GSTZIXAG5JJX
      
-    - name: Copy files to S3 with the AWS CLI
-      run: |
-       which aws
-       aws configure    
