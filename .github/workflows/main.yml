@@ -3,7 +3,8 @@ name: Python package
 on:
   push:
     branches: [ main ]
-
+  pull_request:
+    branches: [ main ]
     
 jobs:
   deploy:
@@ -19,7 +20,7 @@ jobs:
       env:
         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        AWS-REGION: 'eu-west-2'
+        AWS_DEFAULT_REGION: ${AWS_DEFAULT_REGION}
 
 
     - name: S3 Deploy
