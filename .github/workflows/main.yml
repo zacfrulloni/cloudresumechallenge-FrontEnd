@@ -10,7 +10,7 @@ jobs:
     runs-on: windows-latest
     steps:
     - uses: actions/checkout@main
-    - uses: zacfrulloni/s3-sync-action@main
+    - uses: zacfrulloni/https://github.com/zacfrulloni/cloudresumechallenge-FrontEnd/s3-sync-action@main
       with:
         args: --acl public-read --follow-symlinks --delete
       env:
