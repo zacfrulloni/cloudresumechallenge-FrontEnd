@@ -9,7 +9,7 @@ jobs:
     - uses: actions/checkout@main
    
     - name: Upload file to bucket
-      uses: zacfrulloni/cloudresumechallenge-FrontEnd/index.html@main
+      uses: zacfrulloni/cloudresumechallenge-FrontEnd/index.html
       with:
        args: --acl public-read
     env:
