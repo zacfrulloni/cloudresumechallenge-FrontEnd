@@ -17,7 +17,6 @@ jobs:
         with:
           folder: C:\Users\zacfr\OneDrive\Desktop\visitor-counter (1)\visitor-counter\dist\index.html
           bucket: zacsresume.com
-          bucket-region: eu-west-2
           dist-id: E3L31PEXV3KQZH
           invalidation: I2GSTZIXAG5JJX
  
