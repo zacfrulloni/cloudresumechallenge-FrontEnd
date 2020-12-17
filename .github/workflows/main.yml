@@ -23,5 +23,5 @@ jobs:
 
     - name: Copy files to the test website with the AWS CLI
       run: |
-        aws s3 sync . s3://zacsresume.com --exclude "*" --include "index.html"
+        aws s3 sync . s3://zacsresume.com --delete --exclude "*" --include "index.html" --include "style.css" 
 
