@@ -15,7 +15,7 @@ jobs:
       - name: S3 and CloudFront Deploy
         uses: lbertenasco/s3-deploy@v1.2.4
         with:
-          folder: C:\Users\zacfr\OneDrive\Desktop\visitor-counter (1)\visitor-counter\dist\index.html
+          folder: C:\Users\zacfr\OneDrive\Desktop\visitor-counter (1)\visitor-counter\dist
           bucket: zacsresume.com
           dist-id: E3L31PEXV3KQZH
           invalidation: I2GSTZIXAG5JJX
