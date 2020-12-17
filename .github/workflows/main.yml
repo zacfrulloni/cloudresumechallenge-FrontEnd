@@ -11,7 +11,12 @@ jobs:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: eu-west-2
-      - name: Build static site
-        run: yarn install && npm run-script build
-      - name: Deploy static site to S3 bucket
-        run: aws s3 sync ./dist/ s3://<zacsresume.com> --delete
+    
+      - name: S3 Deploy
+        uses: Reggionick/s3-deploy@v3.1.0
+        with:
+         folder: C:\Users\zacfr\OneDrive\Desktop\visitor-counter (1)\visitor-counter\dist
+         bucket: zacsresume.com
+         bucket-region: eu-west-2
+         dist-id: E3L31PEXV3KQZH
+         invalidation: I2GSTZIXAG5JJX
