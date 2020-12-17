@@ -11,12 +11,13 @@ jobs:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: eu-west-2
-    
-      - name: S3 Deploy
-        uses: Reggionick/s3-deploy@v3.1.0
+     
+      - name: S3 and CloudFront Deploy
+        uses: lbertenasco/s3-deploy@v1.2.4
         with:
-         folder: C:\Users\zacfr\OneDrive\Desktop\visitor-counter (1)\visitor-counter\dist
-         bucket: zacsresume.com
-         bucket-region: eu-west-2
-         dist-id: E3L31PEXV3KQZH
-         invalidation: I2GSTZIXAG5JJX
+          folder: C:\Users\zacfr\OneDrive\Desktop\visitor-counter (1)\visitor-counter\dist\index.html
+          bucket: zacsresume.com
+          bucket-region: eu-west-2
+          dist-id: E3L31PEXV3KQZH
+          invalidation: I2GSTZIXAG5JJX
+ 
